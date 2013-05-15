@@ -36,4 +36,9 @@ function onOptionsLoaded(fontName) {
     console.error("Cannot find a head tag");
 }
 
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+  if (changes["font_name"])
+    onOptionsLoaded(changes["font_name"].newValue);
+});
+
 loadOptions(onOptionsLoaded);
