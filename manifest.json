@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "GMail Monospace Font",
+  "description": "This extension set monospace fonts in message view and composition window.",
+  "version": "1.0",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://mail.google.com/*",
+        "https://mail.google.com/*",
+        "http://*.mail.google.com/*",
+        "https://*.mail.google.com/*"
+       ],
+      "css": ["fonts.css"]
+    }
+  ],
+
+  "options_page": "options.html"
+}
