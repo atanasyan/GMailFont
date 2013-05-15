@@ -37,8 +37,10 @@ function onOptionsLoaded(fontName) {
 }
 
 chrome.storage.onChanged.addListener(function(changes, namespace) {
-  if (changes["font_name"])
+  if (changes["font_name"]) {
     onOptionsLoaded(changes["font_name"].newValue);
+    document.location.reload(true);
+  }
 });
 
 loadOptions(onOptionsLoaded);
