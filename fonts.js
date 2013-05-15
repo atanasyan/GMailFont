@@ -11,6 +11,8 @@ var css =
   "  font: normal small $font_name !important;" +
   "}";
 
+var defFontName = "Consolas";
+
 function loadOptions(onOptionsLoaded) {
   chrome.storage.sync.get('font_name', function(val) {
     onOptionsLoaded(val['font_name']);
@@ -18,6 +20,9 @@ function loadOptions(onOptionsLoaded) {
 }
 
 function onOptionsLoaded(fontName) {
+  if (typeof fontName === "undefined")
+    fontName = defFontName;
+
   css = css.replace("$font_name", fontName);
 
   var node = document.createElement("style");
