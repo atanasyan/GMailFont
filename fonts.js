@@ -12,8 +12,10 @@ var css =
   "}";
 
 var heads = document.getElementsByTagName("head");
-if (heads.length <= 0)
+if (heads.length <= 0) {
+  console.error("Cannot find a head tag");
   return;
+}
 
 var node = document.createElement("style");
 node.type = "text/css";
