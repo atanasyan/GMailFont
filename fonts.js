@@ -11,15 +11,24 @@ var css =
   "  font: normal small $font_name !important;" +
   "}";
 
-var heads = document.getElementsByTagName("head");
-if (heads.length <= 0) {
-  console.error("Cannot find a head tag");
-  return;
+function loadOptions(onOptionsLoaded) {
+  chrome.storage.sync.get('font_name', function(val) {
+    onOptionsLoaded(val['font_name']);
+  });
 }
 
-css = css.replace("$font_name", "Consolas");
+function onOptionsLoaded(fontName) {
+  css = css.replace("$font_name", fontName);
 
-var node = document.createElement("style");
-node.type = "text/css";
-node.appendChild(document.createTextNode(css));
-heads[0].appendChild(node);
+  var node = document.createElement("style");
+  node.type = "text/css";
+  node.appendChild(document.createTextNode(css));
+
+  var heads = document.getElementsByTagName("head");
+  if (heads.length > 0)
+    heads[0].appendChild(node);
+  else
+    console.error("Cannot find a head tag");
+}
+
+loadOptions(onOptionsLoaded);
