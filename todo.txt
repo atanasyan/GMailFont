@@ -1,6 +1,8 @@
 + Write functions override css settings
 + Call these functions on startup
-- Call these functions on storage update
++ Call these functions on storage update
+- Do not add new style sheet each time
+- Update page without complete refresh
 - Select font size
 - Setup font size in both windows
 - Select quote's color
