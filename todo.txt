@@ -1,5 +1,5 @@
-- Write functions override css settings
-- Call these functions on startup
++ Write functions override css settings
++ Call these functions on startup
 - Call these functions on storage update
 - Select font size
 - Setup font size in both windows
