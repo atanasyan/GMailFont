@@ -23,7 +23,7 @@ function onOptionsLoaded(fontName) {
   if (typeof fontName === "undefined")
     fontName = defFontName;
 
-  css = css.replace("$font_name", fontName);
+  css = css.replace(/\$font_name/g, fontName);
 
   var node = document.createElement("style");
   node.type = "text/css";
