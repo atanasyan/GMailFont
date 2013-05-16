@@ -14,3 +14,4 @@
 - Publish package
 
 https://github.com/GoogleChrome/chrome-app-samples/blob/master/hello-world-sync/app.js
+http://www.lalit.org/lab/javascript-css-font-detect/
